@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($scope, $timeout, webDevTec, toastr) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -17,6 +17,24 @@
     activate();
 
     function activate() {
+      $scope.someText = "text one time";
+      $scope.someHtml = "<div class='redColored'>Some div</div>";
+        $scope.array = [
+            {
+                src: 'https://lh3.googleusercontent.com/-acrgtkcGo0Y/AAAAAAAAAAI/AAAAAAAAAAA/AMW9IgcPa2SKzC-h26fgbHwlJlJZIT2Afg/s32-c-mo/photo.jpg',
+                name: "first",
+                nim: 1
+            },
+            {
+                name: "second",
+                num: 2
+            },
+            {
+                name:"third",
+                num: 3
+            }
+        ];
+
       getWebDevTec();
       $timeout(function() {
         vm.classAnimation = 'rubberBand';
