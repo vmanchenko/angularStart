@@ -3,10 +3,10 @@
 
   angular
     .module('angular')
-    .controller('MainController', MainController);
+    .controller('Lesson_1Controller', Lesson_1Controller);
 
   /** @ngInject */
-  function MainController($scope, $timeout, webDevTec, toastr) {
+  function Lesson_1Controller($scope, $timeout, webDevTec, toastr) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -18,8 +18,8 @@
 
     function activate() {
 
-     document.querySelector('.navbar-nav li.active').classList.remove('active');
-     document.querySelectorAll('.navbar-nav li')[0].classList.add('active');
+    document.querySelector('.navbar-nav li.active').classList.remove('active');
+    document.querySelectorAll('.navbar-nav li')[2].classList.add('active');
 
       $scope.someText = "text one time";
       $scope.someHtml = "<div class='redColored'>Some div</div>";

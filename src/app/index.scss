@@ -4,13 +4,19 @@
  */
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
-
+$fa-font-path: "../../bower_components/font-awesome/fonts";
+@import "../../bower_components/font-awesome/scss/font-awesome.scss";
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
  */
 // bower:scss
 // endbower
+
+.glyphicon.glyphicon-user{
+  font-size:70px;
+}
+.error-message{ background: #ed1b2e; color: #fff; padding: 10px; margin: 15px 0; border-radius: 4px; }
 
 .browsehappy {
   margin: 0.2em 0;
