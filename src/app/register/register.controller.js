@@ -40,7 +40,9 @@
 
           $scope.submitted = true;
 
-      }
+          location.href = '/';
+
+      };
 
 
       function activate() {

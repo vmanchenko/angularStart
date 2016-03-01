@@ -23,21 +23,9 @@
 
       $scope.someText = "text one time";
       $scope.someHtml = "<div class='redColored'>Some div</div>";
-        $scope.array = [
-            {
-                src: 'https://lh3.googleusercontent.com/-acrgtkcGo0Y/AAAAAAAAAAI/AAAAAAAAAAA/AMW9IgcPa2SKzC-h26fgbHwlJlJZIT2Afg/s32-c-mo/photo.jpg',
-                name: "first",
-                nim: 1
-            },
-            {
-                name: "second",
-                num: 2
-            },
-            {
-                name:"third",
-                num: 3
-            }
-        ];
+
+        $scope.array = JSON.parse(localStorage.getItem('partyUsers')) || [];
+      console.log($scope.array);
 
       getWebDevTec();
       $timeout(function() {
