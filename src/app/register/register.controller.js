@@ -16,6 +16,20 @@
 
     activate();
 
+      $scope.autoFill = function(){
+          var defaultUser =  {
+            firstName:'Vadim',
+            lastName:'Manchenko',
+            email:'vadikmanchenko@gmail.com',
+            participation:'yes'
+          };
+          for (var key in defaultUser){
+            $scope[key] = defaultUser[key];
+
+          }
+
+      };
+
       $scope.registerAction = function(){
           var oldRegistrations = JSON.parse(localStorage.getItem('partyUsers')) || [],
           newItem = {};

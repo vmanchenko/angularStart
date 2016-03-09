@@ -12,7 +12,7 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
  */
 // bower:scss
 // endbower
-
+html{overflow-y: scroll}
 .glyphicon.glyphicon-user{
   font-size:70px;
 }

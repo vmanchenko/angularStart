@@ -8,15 +8,33 @@
                 </div>
             </div><br>
             <div class="row">
-                <div class="col-sm-4" ng-repeat=" item in array">
+                <div class="col-md-4"><input type="text" class="form-control" placeholder="Search" ng-model="search"> </div>
+                <div class="col-md-4">
+                  <select ng-show="search" class="form-control" ng-model="orderselect">
+                    <option value="" disabled selected>Sort by</option>
+                    <option value="firstName">Sort by name</option>
+                    <option value="participation">Sort by attending</option>
+                  </select>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-sm-4" ng-repeat=" item in array | filter:search | orderBy: orderselect">
                     <div class="well">
                         <p class="text-center"><span class="glyphicon glyphicon-user"></span></p>
                         <h4>{{item.firstName +' '+ item.lastName}}</h4>
                         <p class="text-success">{{item.participation}}</p>
+                        <p ><span class="glyphicon glyphicon-envelope" style="margin-right: 5px; top:2px; position: relative"></span>  {{item.email}}</p>
                         <p class="text-muted">{{item.additionalPersonName}}</p>
                     </div>
-                </div>
 
+              </div><br><br>
+              <div class="row" style="text-align: center; font-size: 20px" ng-show="(array | filter:search).length == 0">
+                <p>Nobody with name "<strong ng-bind="search"></strong>" here!</p>
+              </div>
+              <div class="clearfix"></div><br><br><br><br>
+              <div class="row" style="text-align: center; font-size: 30px;">
+                <a href="javascript:;" ng-click="clearLocalStorage()" class="fa fa-times"> Clear localStorage</a>
+              </div><br><br><br><br>
             </div>
         </div>
     </div>

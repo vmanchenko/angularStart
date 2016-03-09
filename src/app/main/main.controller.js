@@ -16,6 +16,13 @@
 
     activate();
 
+
+    $scope.clearLocalStorage = function (){
+      localStorage.removeItem("partyUsers");
+      activate();
+    }
+
+
     function activate() {
 
      document.querySelector('.navbar-nav li.active').classList.remove('active');
@@ -24,14 +31,15 @@
       $scope.someText = "text one time";
       $scope.someHtml = "<div class='redColored'>Some div</div>";
 
-        $scope.array = JSON.parse(localStorage.getItem('partyUsers')) || [];
-      console.log($scope.array);
+      $scope.array = JSON.parse(localStorage.getItem('partyUsers')) || [];
 
       getWebDevTec();
       $timeout(function() {
         vm.classAnimation = 'rubberBand';
       }, 4000);
     }
+
+
 
     function showToastr() {
       toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
