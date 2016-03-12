@@ -7,7 +7,7 @@
                     <h3 class="section-subheading text-muted">These people will be there for sure</h3>
                 </div>
             </div><br>
-            <div class="row">
+            <div class="row" ng-show="((array | filter:search).length > 1) || (!search.value) && (array.length>1)">
                 <div class="col-md-4"><input type="text" class="form-control" placeholder="Search" ng-model="search"> </div>
                 <div class="col-md-4">
                   <select ng-show="search" class="form-control" ng-model="orderselect">
@@ -26,15 +26,19 @@
                         <p ><span class="glyphicon glyphicon-envelope" style="margin-right: 5px; top:2px; position: relative"></span>  {{item.email}}</p>
                         <p class="text-muted">{{item.additionalPersonName}}</p>
                     </div>
-
               </div><br><br>
-              <div class="row" style="text-align: center; font-size: 20px" ng-show="(array | filter:search).length == 0">
+              <div class="row" style="text-align: center; font-size: 20px" ng-show="((array | filter:search).length == 0) && (array.length > 0)">
                 <p>Nobody with name "<strong ng-bind="search"></strong>" here!</p>
               </div>
               <div class="clearfix"></div><br><br><br><br>
-              <div class="row" style="text-align: center; font-size: 30px;">
+              <div class="row" style="text-align: center; font-size: 30px;" ng-show="array.length > 0">
                 <a href="javascript:;" ng-click="clearLocalStorage()" class="fa fa-times"> Clear localStorage</a>
               </div><br><br><br><br>
+
+              <div class="emptyStorage" style="text-align: center" ng-show="array.length == 0">
+                There is no people yet, you can be the first! <br><br>
+                <a href="#/register" class="btn btn-info ">Register</a>
+              </div>
             </div>
         </div>
     </div>

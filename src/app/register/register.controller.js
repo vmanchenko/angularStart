@@ -38,6 +38,8 @@
           newItem.firstName = $scope.firstName;
           newItem.lastName = $scope.lastName;
 
+          console.log($scope.ava);
+
           if($scope.additionalPerson){
               newItem.additionalPersonName = $scope.additionalPersonName;
           }
