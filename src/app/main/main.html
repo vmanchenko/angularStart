@@ -14,17 +14,22 @@
                     <option value="" disabled selected>Sort by</option>
                     <option value="firstName">Sort by name</option>
                     <option value="participation">Sort by attending</option>
+                    <option value="gender" >Sort by gender</option>
                   </select>
                 </div>
             </div><br>
-            <div class="row">
-                <div class="col-sm-4" ng-repeat=" item in array | filter:search | orderBy: orderselect">
-                    <div class="well">
-                        <p class="text-center"><span class="glyphicon glyphicon-user"></span></p>
-                        <h4>{{item.firstName +' '+ item.lastName}}</h4>
+            <div class="row peopleList">
+                <div class="col-sm-4"  ng-repeat=" item in array | filter:search | orderBy: orderselect" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                    <div class="well" style="background:{{item.gender == 'female' ? '#f2e4ed' : '#e4f2f1'}}">
+                        <p class="text-center ">
+                          <span class="glyphicon glyphicon-user" ng-if="!item.pic"></span>
+                          <img ng-if="item.pic" src="{{item.pic}}" height="80" class="img-circle">
+                        </p>
+                        <h4 >{{item.firstName +' '+ item.lastName}} </h4>
                         <p class="text-success">{{item.participation}}</p>
                         <p ><span class="glyphicon glyphicon-envelope" style="margin-right: 5px; top:2px; position: relative"></span>  {{item.email}}</p>
                         <p class="text-muted">{{item.additionalPersonName}}</p>
+
                     </div>
               </div><br><br>
               <div class="row" style="text-align: center; font-size: 20px" ng-show="((array | filter:search).length == 0) && (array.length > 0)">
@@ -37,7 +42,9 @@
 
               <div class="emptyStorage" style="text-align: center" ng-show="array.length == 0">
                 There is no people yet, you can be the first! <br><br>
-                <a href="#/register" class="btn btn-info ">Register</a>
+                <a href="#/register" class="btn btn-info ">Register</a> <br><br> or <br><br>
+                <a href="#" class="btn btn-default" ng-click="addTestPersons()">Add preserved test persons</a>
+                <a href="#" class="btn btn-default" ng-click="getfromGitHub()">Add persons from github</a>
               </div>
             </div>
         </div>
